@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/productDetailFragment">
+
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.example.lab_1_2_shubhambehal_c0835488_android.view.ProductDetailFragment"
+        android:label="Product Detail"
+        tools:layout="@layout/fragment_product_detail">
+        <action
+            android:id="@+id/action_productDetailFragment_to_productsListFragment"
+            app:destination="@id/productsListFragment" />
+        <action
+            android:id="@+id/action_productDetailFragment_to_addEditProductFragment"
+            app:destination="@id/addEditProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productsListFragment"
+        android:name="com.example.lab_1_2_shubhambehal_c0835488_android.view.ProductsListFragment"
+        android:label="All Products"
+        tools:layout="@layout/fragment_products_list" >
+        <action
+            android:id="@+id/action_productsListFragment_to_addEditProductFragment"
+            app:destination="@id/addEditProductFragment" />
+        <action
+            android:id="@+id/action_productsListFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditProductFragment"
+        android:name="com.example.lab_1_2_shubhambehal_c0835488_android.view.AddEditProductFragment"
+        android:label="Add/Edit Product"
+        tools:layout="@layout/fragment_add_edit_product" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.lab_1_2_shubhambehal_c0835488_android.view.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
+</navigation>

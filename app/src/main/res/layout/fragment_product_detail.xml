@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    tools:context=".view.ProductDetailFragment">
+
+    <TextView
+        android:id="@+id/tv_total_products"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="#0f0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Total available products = 10" />
+
+    <TextView
+        android:id="@+id/tv_first_product_head"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/details_of_first_product"
+        android:textColor="#00f"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_total_products" />
+
+    <TextView
+        android:id="@+id/tv_product_id_head"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/product_id"
+        app:layout_constraintBottom_toBottomOf="@id/tv_product_id_value"
+        app:layout_constraintEnd_toStartOf="@id/tv_product_id_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_product_id_value" />
+
+    <TextView
+        android:id="@+id/tv_product_id_value"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_product_id_head"
+        app:layout_constraintTop_toBottomOf="@id/tv_first_product_head"
+        tools:text="23" />
+
+    <TextView
+        android:id="@+id/tv_product_name_head"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/product_name"
+        app:layout_constraintBottom_toBottomOf="@id/tv_product_name_value"
+        app:layout_constraintEnd_toStartOf="@id/tv_product_name_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_product_name_value" />
+
+    <TextView
+        android:id="@+id/tv_product_name_value"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_product_name_head"
+        app:layout_constraintTop_toBottomOf="@id/tv_product_id_value"
+        tools:text="Demo Product" />
+
+    <TextView
+        android:id="@+id/tv_product_desc_head"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/product_description"
+        app:layout_constraintBottom_toBottomOf="@id/tv_product_desc_value"
+        app:layout_constraintEnd_toStartOf="@id/tv_product_desc_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_product_desc_value" />
+
+    <TextView
+        android:id="@+id/tv_product_desc_value"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_product_desc_head"
+        app:layout_constraintTop_toBottomOf="@id/tv_product_name_value"
+        tools:text="Demo Product Description" />
+
+    <TextView
+        android:id="@+id/tv_product_price_head"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/product_price"
+        app:layout_constraintBottom_toBottomOf="@id/tv_product_price_value"
+        app:layout_constraintEnd_toStartOf="@id/tv_product_price_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_product_price_value" />
+
+    <TextView
+        android:id="@+id/tv_product_price_value"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_product_price_head"
+        app:layout_constraintTop_toBottomOf="@id/tv_product_desc_value"
+        tools:text="$200" />
+
+    <TextView
+        android:id="@+id/tv_product_location_head"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/product_provide_location"
+        app:layout_constraintBottom_toBottomOf="@id/tv_product_location_value"
+        app:layout_constraintEnd_toStartOf="@id/tv_product_location_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_product_location_value" />
+
+    <TextView
+        android:id="@+id/tv_product_location_value"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_product_location_head"
+        app:layout_constraintTop_toBottomOf="@id/tv_product_price_value"
+        tools:text="100 Lat, 200 long" />
+
+    <Button
+        android:id="@+id/btn_see_all_products"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/see_all_products"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_product_location_value" />
+
+    <Button
+        android:id="@+id/btn_add_a_product"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/add_a_new_product"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_see_all_products" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grp_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tv_first_product_head,tv_product_id_head,tv_product_id_value,tv_product_name_head,tv_product_name_value,tv_product_desc_head,tv_product_desc_value,tv_product_price_head,tv_product_price_value,tv_product_location_head,tv_product_location_value,btn_see_all_products" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

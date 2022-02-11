@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Lab_1_2_shubhamBehal_c0835488_Android</string>
+    <string name="product_id">Product Id:</string>
+    <string name="product_description">Product Description:</string>
+    <string name="product_name">Product Name:</string>
+    <string name="product_price">Product price:</string>
+    <string name="product_provide_location">Product provide location:</string>
+    <string name="see_all_products">See All Products</string>
+    <string name="add_a_new_product">Add a new Product</string>
+    <string name="total_products">Total available products = %d</string>
+    <string name="dollar_sign">$%d</string>
+    <string name="lat_long">LAT : %d, LONG : %d</string>
+    <string name="details_of_first_product">Details of first product:</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="price">Price : $%d</string>
+    <string name="location">LAT:%d, LONG:%d</string>
+    <string name="see_on_map"><![CDATA[See on Map ->]]></string>
+    <string name="enter_product_name">Enter Product Name</string>
+    <string name="title_description">Enter product description</string>
+    <string name="enter_product_price">Enter Product Price</string>
+    <string name="enter_latitude">Enter provider latitude value</string>
+    <string name="enter_longitude">Enter provider longitude value</string>
+    <string name="save_product_details">Save product details</string>
+    <string name="empty_name_error">Name cannot be empty</string>
+    <string name="empty_description_error">description cannot be empty</string>
+    <string name="empty_price_error">Price cannot be empty</string>
+    <string name="empty_lat_error">Latitude cannot be empty</string>
+    <string name="empty_long_error">Longitude cannot be empty</string>
+    <string name="saved_success">Product Saved/Edited Successfully</string>
+</resources>
