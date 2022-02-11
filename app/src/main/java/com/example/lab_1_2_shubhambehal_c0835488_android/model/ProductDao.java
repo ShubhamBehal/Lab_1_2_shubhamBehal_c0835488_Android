@@ -27,6 +27,6 @@ public interface ProductDao {
     @Query("UPDATE products SET productName = :productName, productDescription = :productDescription " +
             ", productPrice= :productPrice, latitude = :latitude, longitude =:longitude " +
             "WHERE productId = :productId")
-    void updateProduct(String productName, String productDescription, int productPrice,
-                       int latitude, int longitude, int productId);
+    void updateProduct(String productName, String productDescription, double productPrice,
+                       double latitude, double longitude, int productId);
 }

@@ -77,9 +77,9 @@ public class AddEditProductFragment extends Fragment {
             ProductInfo productInfo = new ProductInfo(
                     Objects.requireNonNull(tietName.getText()).toString().trim(),
                     Objects.requireNonNull(tietDesc.getText()).toString().trim(),
-                    Integer.parseInt(Objects.requireNonNull(tietPrice.getText()).toString().trim()),
-                    Integer.parseInt(Objects.requireNonNull(tietLat.getText()).toString().trim()),
-                    Integer.parseInt(Objects.requireNonNull(tieLong.getText()).toString().trim()));
+                    Double.parseDouble(Objects.requireNonNull(tietPrice.getText()).toString().trim()),
+                    Double.parseDouble(Objects.requireNonNull(tietLat.getText()).toString().trim()),
+                    Double.parseDouble(Objects.requireNonNull(tieLong.getText()).toString().trim()));
             viewModel.insertProductToRepo(productInfo, productId);
             Toast.makeText(requireActivity(), getString(R.string.saved_success),
                     Toast.LENGTH_SHORT).show();

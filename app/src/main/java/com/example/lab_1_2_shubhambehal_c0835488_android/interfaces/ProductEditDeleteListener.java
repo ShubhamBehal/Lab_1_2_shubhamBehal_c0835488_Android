@@ -5,5 +5,5 @@ public interface ProductEditDeleteListener {
 
     void editProduct(int productId);
 
-    void openMap(int latitude, int longitude);
+    void openMap(double latitude, double longitude);
 }

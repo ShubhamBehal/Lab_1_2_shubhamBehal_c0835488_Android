@@ -1,14 +1,27 @@
 package com.example.lab_1_2_shubhambehal_c0835488_android.view;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.lab_1_2_shubhambehal_c0835488_android.R;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -20,8 +33,25 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapFragment extends Fragment {
     MapView mMapView;
     private GoogleMap googleMap;
+    private ActivityResultLauncher<String> locationPermissionLauncher;
 
-    @SuppressLint("MissingPermission")
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        locationPermissionLauncher =
+                registerForActivityResult(new ActivityResultContracts.RequestPermission(),
+                        isGranted -> {
+                            if (isGranted) {
+                                getCurrentLocation();
+                            } else {
+                                Toast.makeText(requireActivity(),
+                                        getString(R.string.permission_denied), Toast.LENGTH_SHORT)
+                                        .show();
+                            }
+                        });
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,21 +73,64 @@ public class MapFragment extends Fragment {
             googleMap = mMap;
 
             // For showing a move to my location button
-            googleMap.setMyLocationEnabled(true);
+            getCurrentLocation();
+
 
             if (getArguments() != null) {
-                int latitude = getArguments().getInt("latitude", 0);
-                int longitude = getArguments().getInt("longitude", 0);
+                double latitude = getArguments().getDouble("latitude", 0);
+                double longitude = getArguments().getDouble("longitude", 0);
                 LatLng latLng = new LatLng(latitude, longitude);
-                googleMap.addMarker(new MarkerOptions().position(latLng).title("Marker Title")
-                        .snippet("Marker Description"));
-                CameraPosition cameraPosition = new CameraPosition.Builder()
-                        .target(latLng).zoom(12).build();
-                googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                googleMap.addMarker(new MarkerOptions().position(latLng).title("Product distributor location")
+                        .snippet("Product is available here"));
             }
+
         });
 
         return rootView;
+    }
+
+    @SuppressLint("MissingPermission")
+    private void getCurrentLocation() {
+        if (hasFineLocationPermission()) {
+            if (hasCoarseLocationPermission()) {
+                FusedLocationProviderClient fusedLocationProviderClient =
+                        LocationServices.getFusedLocationProviderClient(requireActivity());
+                LocationRequest locationRequest = LocationRequest.create();
+                locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+                locationRequest.setInterval(5000);
+                locationRequest.setFastestInterval(3000);
+
+                LocationCallback callback = new LocationCallback() {
+                    @Override
+                    public void onLocationResult(@NonNull LocationResult locationResult) {
+                        super.onLocationResult(locationResult);
+                        LatLng latLng = new LatLng(locationResult.getLastLocation().getLatitude(),
+                                locationResult.getLastLocation().getLongitude());
+                        googleMap.addMarker(new MarkerOptions().position(latLng).title("Location")
+                                .snippet("You Are here"));
+                    }
+
+                };
+
+                fusedLocationProviderClient.requestLocationUpdates(locationRequest, callback,
+                        null);
+            } else {
+                locationPermissionLauncher.launch(Manifest.permission.ACCESS_COARSE_LOCATION);
+            }
+        } else {
+            locationPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION);
+        }
+    }
+
+    private boolean hasCoarseLocationPermission() {
+        return ContextCompat.checkSelfPermission(requireActivity(),
+                Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private boolean hasFineLocationPermission() {
+        return ContextCompat.checkSelfPermission(requireActivity(),
+                Manifest.permission.ACCESS_FINE_LOCATION) ==
+                PackageManager.PERMISSION_GRANTED;
     }
 
     @Override

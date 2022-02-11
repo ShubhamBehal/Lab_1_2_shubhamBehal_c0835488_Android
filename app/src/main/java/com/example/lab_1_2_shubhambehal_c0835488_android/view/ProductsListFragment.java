@@ -102,10 +102,10 @@ public class ProductsListFragment extends Fragment implements ProductEditDeleteL
     }
 
     @Override
-    public void openMap(int latitude, int longitude) {
+    public void openMap(double latitude, double longitude) {
         Bundle bundle = new Bundle();
-        bundle.putInt("latitude", latitude);
-        bundle.putInt("longitude", longitude);
+        bundle.putDouble("latitude", latitude);
+        bundle.putDouble("longitude", longitude);
         Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
                 .navigate(R.id.action_productsListFragment_to_mapFragment, bundle);
     }

@@ -11,11 +11,12 @@ public class ProductInfo {
     public int productId;
     public String productName;
     public String productDescription;
-    public int productPrice;
-    public int latitude;
-    public int longitude;
+    public double productPrice;
+    public double latitude;
+    public double longitude;
 
-    public ProductInfo(String productName, String productDescription, int productPrice, int latitude, int longitude) {
+    public ProductInfo(String productName, String productDescription, double productPrice,
+                       double latitude, double longitude) {
         this.productName = productName;
         this.productDescription = productDescription;
         this.productPrice = productPrice;
